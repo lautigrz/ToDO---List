@@ -4,7 +4,7 @@ dotenv.config({ path: '.env.test' });
 
 import { prisma } from '../prisma.client.js';
 
-beforeAll(async () => {
+beforeEach(async () => {
     await prisma.todo.deleteMany();
 });
 

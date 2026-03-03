@@ -16,4 +16,16 @@ describe('ToDoRepository', () => {
         expect(dbTodo?.title).toBe('Test ToDo');
         expect(dbTodo?.completed).toBe(false);
     });
+
+    it('should find all ToDos', async () => {
+
+        await Promise.all([
+            toDoRepository.create('Test ToDo 1'),
+            toDoRepository.create('Test ToDo 2'),
+        ])
+
+        const todos = await prisma.todo.findMany();
+        expect(todos).toBeDefined();
+        expect(todos.length).toBe(2);
+    });
 });
