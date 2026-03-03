@@ -9,7 +9,9 @@
     "build": "tsc",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "migrate:dev": "dotenv -e .env -- prisma migrate dev",
+    "migrate:test": "dotenv -e .env.test -- prisma migrate dev"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,8 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.3.3",
+    "dotenv": "^17.3.1",
+    "dotenv-cli": "^11.0.0",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
